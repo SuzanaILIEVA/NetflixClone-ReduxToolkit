@@ -4,8 +4,11 @@ import defaultStyle from '../../styles';
 import LinearGradient from 'react-native-linear-gradient';
 import ButtonComp from '../../components/ui/buttonComp';
 import {themeColors} from '../../themes/themeColors';
+import {useNavigation} from '@react-navigation/native';
+import {SIGNIN} from '../../utils/routes';
 
 const GetStartedScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={defaultStyle.container}>
       <View style={{flex: 1}}>
@@ -42,7 +45,11 @@ const GetStartedScreen = () => {
         </View>
       </View>
       <Text style={styles.dots}>••••</Text>
-      <ButtonComp title={'GET STARTED'} color={themeColors.RED} />
+      <ButtonComp
+        title={'GET STARTED'}
+        color={themeColors.RED}
+        onPress={() => navigation.navigate(SIGNIN)}
+      />
     </View>
   );
 };
@@ -57,14 +64,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     padding: 20,
     borderRadius: 10,
-
     overflow: 'hidden', // Hide the overflow of the child component
   },
   title: {
     fontSize: 30,
     color: '#fff',
     fontWeight: 'bold',
-    textShadowColor: themeColors.GRAY_COLOR,
+    textShadowColor: themeColors.GRAY,
     textShadowOffset: {width: 2, height: 2},
     textShadowRadius: 10,
     marginTop: 100,

@@ -1,6 +1,7 @@
 export const themeColors = {
   BLACK: '#000000',
   WHITE: '#FFFFFF',
-  RED: '#db202c',
-  GRAY_COLOR: '#808080',
+  RED: '#C60A0A',
+  GRAY: '#808080',
+  DARK_GRAY: '#433C3C',
 };

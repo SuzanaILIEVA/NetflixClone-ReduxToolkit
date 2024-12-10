@@ -11,7 +11,9 @@ import {themeColors} from '../../themes/themeColors';
 const ButtonComp = props => {
   const {title, color} = props;
   return (
-    <TouchableOpacity style={[styles.button, {backgroundColor: color}]}>
+    <TouchableOpacity
+      {...props}
+      style={[styles.button, {backgroundColor: color}]}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
