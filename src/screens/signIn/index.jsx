@@ -35,7 +35,7 @@ const SignInScreen = () => {
       <View style={{height: 60}} />
       <ScrollView style={styles.inputContainer}>
         <Formik
-          initialValues={{email: '', password: ''}}
+          initialValues={{email: 'suzi@gmail.com', password: '123654'}}
           validationSchema={signInvalidationSchema}
           onSubmit={(values, {resetForm}) => {
             console.log(values);

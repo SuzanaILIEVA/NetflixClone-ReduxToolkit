@@ -5,6 +5,7 @@ const defaultStyle = StyleSheet.create({
   container: {
     backgroundColor: themeColors.BLACK,
     flex: 1,
+    padding: 5,
   },
 });
 

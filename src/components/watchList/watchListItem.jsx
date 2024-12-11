@@ -1,13 +1,25 @@
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React from 'react';
 import {themeColors} from '../../themes/themeColors';
 import {generateRandomColor} from '../../utils/functions';
 import LinearGradient from 'react-native-linear-gradient';
-import Feather from 'react-native-vector-icons/Feather';
+import {useNavigation} from '@react-navigation/native';
+import {BOTTOMTAB} from '../../utils/routes';
+
 const WatchListItem = ({item}) => {
   const {width, height} = Dimensions.get('window');
+  const navigation = useNavigation();
   return (
-    <View style={styles.cotainer}>
+    <Pressable
+      style={styles.cotainer}
+      onPress={() => navigation.navigate(BOTTOMTAB)}>
       <View>
         <LinearGradient
           colors={[
@@ -33,7 +45,7 @@ const WatchListItem = ({item}) => {
         </LinearGradient>
       </View>
       <Text style={styles.title}>{item.title}</Text>
-    </View>
+    </Pressable>
   );
 };
 
@@ -46,11 +58,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 20,
   },
-  shadow: {
-    backgroundColor: ' rgba(0, 0, 0, 0.5)',
-    zIndex: 100,
-    overflow: 'hidden',
-  },
+
   card: {
     borderRadius: 5,
     justifyContent: 'center',

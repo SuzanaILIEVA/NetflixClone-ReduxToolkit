@@ -1,9 +1,17 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ADDWATCHLISTITEM, GETSTARTED, SIGNIN, WATCHLIST} from '../utils/routes';
+import {
+  ADDWATCHLISTITEM,
+  BOTTOMTAB,
+  GETSTARTED,
+  SIGNIN,
+  WATCHLIST,
+} from '../utils/routes';
 import GetStartedScreen from '../screens/getStarted';
 import SignInScreen from '../screens/signIn';
 import WatchListScreen from '../screens/watchList';
 import AddWatchListItemScreen from '../screens/watchList/addWatchListItemScreen';
+import BottomTabScreen from '../screens/bottomTab';
+import TabNavigation from './tabNavigation';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
@@ -19,6 +27,7 @@ const RouteNavigation = () => {
         name={ADDWATCHLISTITEM}
         component={AddWatchListItemScreen}
       />
+      <Stack.Screen name={BOTTOMTAB} component={TabNavigation} />
     </Stack.Navigator>
   );
 };
