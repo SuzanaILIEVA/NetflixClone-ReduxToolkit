@@ -8,7 +8,7 @@ export const MOVIEDETAILS_URL = 'movie/';
 export const TRENDING_MOVIES_URL = 'trending/movie/day';
 
 //
-export const MOVIE_CREDITS_URL = id => `movie/${id}/credits`;
+export const MOVIE_CREDITS_URL = id => `movie/${id}/credits`; //CAST DETAILS
 export const SIMILAR_MOVIE_URL = id => `movie/${id}/similar`;
 
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';

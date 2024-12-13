@@ -11,10 +11,10 @@ const CategoriesScreen = ({navigation}) => {
   const {categories} = useSelector(state => state.categoriesStore);
   const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(getCategories());
-  //   }, []);
-  console.log('CategoriesScreen', categories);
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+  // console.log('CategoriesScreen', categories);
 
   return (
     <SafeAreaView style={defaultStyle.container}>

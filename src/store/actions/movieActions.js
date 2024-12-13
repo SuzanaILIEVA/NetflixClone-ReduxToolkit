@@ -2,9 +2,11 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import {getRequest} from '../../services/verbs';
 import {
   CATEGORIES_URL,
+  MOVIE_CREDITS_URL,
   MOVIEDETAILS_URL,
   NOW_PLAYING_URL,
   POPULAR_URL,
+  SIMILAR_MOVIE_URL,
   TOP_RATED_URL,
   TRENDING_MOVIES_URL,
   UPCOMING_URL,
@@ -67,6 +69,25 @@ const getMovieDetail = createAsyncThunk('movies/getMovieData', async params => {
   return response.data;
 });
 
+const getCastDetails = createAsyncThunk('movies/getCredits', async params => {
+  const response = await getRequest(
+    `${MOVIE_CREDITS_URL(params.movieId)}`,
+    params,
+  );
+  return response.data.cast;
+});
+
+const getSimilarMovies = createAsyncThunk(
+  'movies/getSimilarMovies',
+  async params => {
+    const response = await getRequest(
+      `${SIMILAR_MOVIE_URL(params.movieId)}`,
+      params,
+    );
+    return response.data.results;
+  },
+);
+
 export {
   getTopRatedMovies,
   getCategories,
@@ -75,4 +96,6 @@ export {
   getUpComingMovies,
   getMovieDetail,
   getTrendingMovies,
+  getCastDetails,
+  getSimilarMovies,
 };

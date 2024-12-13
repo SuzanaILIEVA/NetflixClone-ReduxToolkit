@@ -1,8 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {
+  getCastDetails,
   getMovieDetail,
   getNowPlayingMovies,
   getPopularMovies,
+  getSimilarMovies,
   getTopRatedMovies,
   getTrendingMovies,
   getUpComingMovies,
@@ -15,6 +17,8 @@ const initialState = {
   nowPlayingMovies: [],
   movieDetailData: {},
   trendingMovies: [],
+  castDetails: [],
+  similarMovies: [],
   pending: {
     topRated: false,
     popular: false,
@@ -22,6 +26,8 @@ const initialState = {
     nowPlaying: false,
     movieDetail: false,
     trending: false,
+    castpending: false,
+    similar: false,
   },
   error: null,
 };
@@ -96,6 +102,28 @@ const movieSlice = createSlice({
       .addCase(getTrendingMovies.rejected, (state, action) => {
         state.error = action.error;
         state.pending.trending = false;
+      })
+      .addCase(getCastDetails.pending, state => {
+        state.pending.castpending = true;
+      })
+      .addCase(getCastDetails.fulfilled, (state, action) => {
+        state.castDetails = action.payload;
+        state.pending.castpending = false;
+      })
+      .addCase(getCastDetails.rejected, (state, action) => {
+        state.error = action.error;
+        state.pending.castpending = false;
+      })
+      .addCase(getSimilarMovies.pending, state => {
+        state.pending.similar = true;
+      })
+      .addCase(getSimilarMovies.fulfilled, (state, action) => {
+        state.similarMovies = action.payload;
+        state.pending.similar = false;
+      })
+      .addCase(getSimilarMovies.rejected, (state, action) => {
+        state.error = action.error;
+        state.pending.similar = false;
       });
   },
 });
