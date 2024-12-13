@@ -2,7 +2,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   ADDWATCHLISTITEM,
   BOTTOMTAB,
+  CATEGORIES_TITLES,
   GETSTARTED,
+  MOVIEDETAIL,
+  MOVIELIST,
   SIGNIN,
   WATCHLIST,
 } from '../utils/routes';
@@ -10,8 +13,10 @@ import GetStartedScreen from '../screens/getStarted';
 import SignInScreen from '../screens/signIn';
 import WatchListScreen from '../screens/watchList';
 import AddWatchListItemScreen from '../screens/watchList/addWatchListItemScreen';
-import BottomTabScreen from '../screens/bottomTab';
 import TabNavigation from './tabNavigation';
+import MovieListScreen from '../screens/movieListSeeAll';
+import CategoriesScreen from '../screens/home/categoriesScreen';
+import MovieDetailScreen from '../screens/movieDetail';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
@@ -28,6 +33,9 @@ const RouteNavigation = () => {
         component={AddWatchListItemScreen}
       />
       <Stack.Screen name={BOTTOMTAB} component={TabNavigation} />
+      <Stack.Screen name={MOVIELIST} component={MovieListScreen} />
+      <Stack.Screen name={CATEGORIES_TITLES} component={CategoriesScreen} />
+      <Stack.Screen name={MOVIEDETAIL} component={MovieDetailScreen} />
     </Stack.Navigator>
   );
 };

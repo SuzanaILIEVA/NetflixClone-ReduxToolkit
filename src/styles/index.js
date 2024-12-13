@@ -7,6 +7,11 @@ const defaultStyle = StyleSheet.create({
     flex: 1,
     padding: 5,
   },
+
+  detailScreenstyle: {
+    backgroundColor: themeColors.BLACK,
+    flex: 1,
+  },
 });
 
 export default defaultStyle;

@@ -3,7 +3,7 @@ import React from 'react';
 import {height, width} from '../../utils/constants';
 import {themeColors} from '../../themes/themeColors';
 
-const HomeHeaderComp = () => {
+const HomeHeaderComp = props => {
   return (
     <View style={styles.homeHeader}>
       <View>
@@ -19,7 +19,7 @@ const HomeHeaderComp = () => {
         <Pressable>
           <Text style={styles.headerText}>Movies</Text>
         </Pressable>
-        <Pressable>
+        <Pressable {...props}>
           <Text style={styles.headerText}>Categories</Text>
         </Pressable>
       </View>

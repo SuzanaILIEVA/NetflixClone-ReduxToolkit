@@ -7,3 +7,7 @@ export const HOME = 'Home';
 export const NEWHOT = 'New & Hot';
 export const SEARCH = 'Search';
 export const DOWNLOAD = 'Download';
+export const MOVIELIST = 'Movie List'; //See All
+export const CATEGORIES = 'Category List';
+export const CATEGORIES_TITLES = 'Category List Titles';
+export const MOVIEDETAIL = 'Movie Detail';
