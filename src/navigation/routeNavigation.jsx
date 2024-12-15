@@ -6,6 +6,7 @@ import {
   GETSTARTED,
   MOVIEDETAIL,
   MOVIELIST,
+  PERSON_DETAILS,
   SIGNIN,
   WATCHLIST,
 } from '../utils/routes';
@@ -17,6 +18,7 @@ import TabNavigation from './tabNavigation';
 import MovieListScreen from '../screens/movieListSeeAll';
 import CategoriesScreen from '../screens/home/categoriesScreen';
 import MovieDetailScreen from '../screens/movieDetail';
+import PersonDetailScreen from '../screens/personDetail';
 
 const Stack = createNativeStackNavigator();
 const RouteNavigation = () => {
@@ -36,6 +38,7 @@ const RouteNavigation = () => {
       <Stack.Screen name={MOVIELIST} component={MovieListScreen} />
       <Stack.Screen name={CATEGORIES_TITLES} component={CategoriesScreen} />
       <Stack.Screen name={MOVIEDETAIL} component={MovieDetailScreen} />
+      <Stack.Screen name={PERSON_DETAILS} component={PersonDetailScreen} />
     </Stack.Navigator>
   );
 };

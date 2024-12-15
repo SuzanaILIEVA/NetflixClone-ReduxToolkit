@@ -1,23 +1,23 @@
 [
     {
         "id": 1,
+        "title": "Top Rated",
+        "value": "top_rated"
+    },
+    {
+        "id": 2,
         "title": "Popular",
         "value": "popular"
     },
     {
-        "id": 2,
+        "id": 3,
         "title": "Upcoming Movies",
         "value": "upcoming"
     },
     {
-        "id": 3,
+        "id": 4,
         "title": "Now Playing",
         "value": "now_playing"
-    },
-    {
-        "id": 4,
-        "title": "Top Rated",
-        "value": "top_rated"
     },
     {
         "id": 5,

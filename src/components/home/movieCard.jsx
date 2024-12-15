@@ -8,6 +8,7 @@ import {MOVIEDETAIL} from '../../utils/routes';
 
 const MovieCard = ({item}) => {
   const navigation = useNavigation();
+  // console.log(' Moviecard movieId: ' + item.id);
   return (
     <View>
       <Pressable

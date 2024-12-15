@@ -3,6 +3,7 @@ import {
   getCastDetails,
   getMovieDetail,
   getNowPlayingMovies,
+  getPersonDetail,
   getPopularMovies,
   getSimilarMovies,
   getTopRatedMovies,
@@ -19,6 +20,7 @@ const initialState = {
   trendingMovies: [],
   castDetails: [],
   similarMovies: [],
+
   pending: {
     topRated: false,
     popular: false,

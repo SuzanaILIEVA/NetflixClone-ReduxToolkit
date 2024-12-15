@@ -20,6 +20,8 @@ import {
   getUpComingMovies,
 } from '../../store/actions/movieActions';
 import {CATEGORIES_TITLES} from '../../utils/routes';
+import HomeTopComp from '../../components/home/homeTopComp';
+import MovieCard from '../../components/home/movieCard';
 
 const HomeScreen = ({navigation}) => {
   const {
@@ -46,9 +48,14 @@ const HomeScreen = ({navigation}) => {
     <SafeAreaView style={defaultStyle.container}>
       <HomeHeaderComp onPress={() => navigation.navigate(CATEGORIES_TITLES)} />
 
-      <FlatList
-        data={widgets}
-        renderItem={({item}) => <SectionsComp item={item} />}></FlatList>
+      <ScrollView>
+        <HomeTopComp />
+        <ScrollView>
+          {widgets.map((item, index) => (
+            <SectionsComp key={index} item={item} />
+          ))}
+        </ScrollView>
+      </ScrollView>
     </SafeAreaView>
   );
 };

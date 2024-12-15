@@ -2,8 +2,12 @@ import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {height, width} from '../../utils/constants';
 import {themeColors} from '../../themes/themeColors';
+import Feather from 'react-native-vector-icons/Feather';
+import {useNavigation} from '@react-navigation/native';
+import {SEARCH} from '../../utils/routes';
 
 const HomeHeaderComp = props => {
+  const navigation = useNavigation();
   return (
     <View style={styles.homeHeader}>
       <View>
@@ -23,6 +27,9 @@ const HomeHeaderComp = props => {
           <Text style={styles.headerText}>Categories</Text>
         </Pressable>
       </View>
+      <Pressable onPress={() => navigation.navigate(SEARCH)}>
+        <Feather name="search" size={25} />
+      </Pressable>
     </View>
   );
 };
@@ -33,8 +40,8 @@ const styles = StyleSheet.create({
   homeHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 15,
+    justifyContent: 'space-between',
   },
   headertextlist: {
     flexDirection: 'row',

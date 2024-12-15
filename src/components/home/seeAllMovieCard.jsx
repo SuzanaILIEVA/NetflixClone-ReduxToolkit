@@ -7,7 +7,7 @@ import {MOVIEDETAIL} from '../../utils/routes';
 
 const SeeAllMovieCard = ({item}) => {
   const navigation = useNavigation();
-  console.log('See All Movie Card item id', item.id);
+  // console.log('See All Movie Card item id', item.id);
   return (
     <View style={styles.container}>
       <Pressable

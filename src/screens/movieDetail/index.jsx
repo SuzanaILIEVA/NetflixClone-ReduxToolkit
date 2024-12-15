@@ -2,6 +2,7 @@ import {
   ActivityIndicator,
   FlatList,
   Image,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -21,9 +22,12 @@ import {
 import {IMG_URL, LOGO_URL} from '../../services/urls';
 import {height, width} from '../../utils/constants';
 import MovieCard from '../../components/home/movieCard';
-const MovieDetailScreen = ({navigation, route}) => {
+import {PERSON_DETAILS} from '../../utils/routes';
+import {useNavigation} from '@react-navigation/native';
+const MovieDetailScreen = ({route}) => {
+  const navigation = useNavigation();
   const {movieId} = route?.params;
-  console.log('movieId: ' + movieId);
+  // console.log(' MovieDetailScreen movieId: ' + movieId);
 
   const {movieDetailData, pending, castDetails, similarMovies} = useSelector(
     state => state.movieStore,
@@ -33,10 +37,11 @@ const MovieDetailScreen = ({navigation, route}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (!movieId) return;
     dispatch(getMovieDetail({movieId: movieId}));
     dispatch(getCastDetails({movieId}));
     dispatch(getSimilarMovies({movieId}));
-  }, []);
+  }, [movieId]);
 
   // console.log('MovieDetail SCREEEN CAST DETAILS', castDetails);
 
@@ -124,6 +129,7 @@ const MovieDetailScreen = ({navigation, route}) => {
                 keyExtractor={(item, index) => index.toString()}
               />
             </View>
+
             {/* ACTORS */}
 
             <View style={{marginHorizontal: 10}}>
@@ -133,7 +139,12 @@ const MovieDetailScreen = ({navigation, route}) => {
                 showsHorizontalScrollIndicator={false}
                 data={castDetails}
                 renderItem={({item}) => (
-                  <View style={styles.actorCard}>
+                  <Pressable
+                    style={styles.actorCard}
+                    onPress={() =>
+                      navigation.navigate(PERSON_DETAILS, {personId: item.id})
+                    }>
+                    {/* {console.log('ACTOR ID =====>', item.id)} */}
                     <Image
                       source={
                         item.profile_path
@@ -145,10 +156,11 @@ const MovieDetailScreen = ({navigation, route}) => {
                     <Text numberOfLines={1} style={styles.companyName}>
                       {item.name}
                     </Text>
-                  </View>
+                  </Pressable>
                 )}
               />
             </View>
+            {/* Production Companies */}
             <View style={{marginHorizontal: 10}}>
               <Text style={styles.subtitles}>Production Companies</Text>
               <FlatList
@@ -157,12 +169,6 @@ const MovieDetailScreen = ({navigation, route}) => {
                 data={movieDetailData.production_companies}
                 renderItem={({item}) => (
                   <View style={styles.companies}>
-                    {/* {console.log(
-                      'Company =====>>:',
-                      item.name,
-                      'Logo path====>>:',
-                      item.logo_path,
-                    )} */}
                     <Image
                       source={
                         item.logo_path
@@ -199,6 +205,8 @@ const MovieDetailScreen = ({navigation, route}) => {
                 keyExtractor={(item, index) => index.toString()}
               />
             </View>
+
+            {/* Production Countries */}
             <View style={{marginHorizontal: 10}}>
               <Text style={styles.subtitles}>Production Countries</Text>
               <FlatList
@@ -227,6 +235,7 @@ const MovieDetailScreen = ({navigation, route}) => {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item, index}) => <MovieCard item={item} />}
+                keyExtractor={(item, index) => index.toString()}
               />
             </View>
           </ScrollView>

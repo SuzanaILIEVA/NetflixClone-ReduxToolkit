@@ -3,6 +3,8 @@ import React from 'react';
 import SectionHeader from './SectionHeader';
 import {useSelector} from 'react-redux';
 import MovieCard from './movieCard';
+import HomeTopComp from './homeTopComp';
+import SeeAllMovieCard from './seeAllMovieCard';
 
 const SectionsComp = props => {
   const {item} = props;
@@ -24,11 +26,11 @@ const SectionsComp = props => {
       case 'popular':
         return popularMovies;
       case 'now_playing':
-        return nowPlayingMovies;
+        return [...nowPlayingMovies].reverse();
       case 'upcoming':
         return upcominMovies;
       case 'trending':
-        return trendingMovies;
+        return [...trendingMovies].reverse();
 
       default:
     }

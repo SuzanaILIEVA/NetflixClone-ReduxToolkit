@@ -11,8 +11,13 @@ import SeeAllMovieCard from '../../components/home/seeAllMovieCard';
 const MovieListScreen = ({navigation, route}) => {
   const {value} = route.params;
 
-  const {topRatedMovies, popularMovies, upcominMovies, nowPlayingMovies} =
-    useSelector(state => state.movieStore);
+  const {
+    topRatedMovies,
+    popularMovies,
+    upcominMovies,
+    nowPlayingMovies,
+    trendingMovies,
+  } = useSelector(state => state.movieStore);
   // console.log(topRatedMovies);
 
   const renderData = () => {
@@ -25,6 +30,8 @@ const MovieListScreen = ({navigation, route}) => {
         return nowPlayingMovies;
       case 'upcoming':
         return upcominMovies;
+      case 'trending':
+        return trendingMovies;
 
       default:
         popularMovies;

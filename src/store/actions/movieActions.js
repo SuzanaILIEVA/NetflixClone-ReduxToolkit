@@ -5,6 +5,8 @@ import {
   MOVIE_CREDITS_URL,
   MOVIEDETAILS_URL,
   NOW_PLAYING_URL,
+  PERSON_DETAIL_URL,
+  PERSON_MOVIE_CREDITS_URL,
   POPULAR_URL,
   SIMILAR_MOVIE_URL,
   TOP_RATED_URL,
@@ -16,7 +18,7 @@ const getTopRatedMovies = createAsyncThunk(
   'movies/getTopRatedMovies',
   async params => {
     const response = await getRequest(TOP_RATED_URL, params);
-    // console.log('top ratedddd', response.data.results);
+    // console.log('top ratedd', response.data.results);
 
     return response.data.results;
   },
@@ -58,7 +60,7 @@ const getCategories = createAsyncThunk(
   'categories/getCategories',
   async params => {
     const response = await getRequest(CATEGORIES_URL, params);
-    console.log('Genres ==> ', response.data.genres);
+    // console.log('Genres ==> ', response.data.genres);
     return response.data.genres;
   },
 );
@@ -88,6 +90,28 @@ const getSimilarMovies = createAsyncThunk(
   },
 );
 
+const getPersonDetail = createAsyncThunk(
+  'person/getPersonDetail',
+  async params => {
+    const response = await getRequest(
+      `${PERSON_DETAIL_URL(params.personId)}`,
+      params,
+    );
+    // console.log('API Response====>>:', response?.data || response);
+    return response.data;
+  },
+);
+
+const getPersonMovies = createAsyncThunk(
+  'person/getPersonMovies',
+  async params => {
+    const response = await getRequest(
+      `${PERSON_MOVIE_CREDITS_URL(params.personId)}`,
+      params,
+    );
+    return response.data.cast;
+  },
+);
 export {
   getTopRatedMovies,
   getCategories,
@@ -98,4 +122,6 @@ export {
   getTrendingMovies,
   getCastDetails,
   getSimilarMovies,
+  getPersonDetail,
+  getPersonMovies,
 };
