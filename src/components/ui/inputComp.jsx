@@ -11,7 +11,7 @@ import {themeColors} from '../../themes/themeColors';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 const InputComp = props => {
-  const {error} = props;
+  const {error, icon, value} = props;
 
   return (
     <View>

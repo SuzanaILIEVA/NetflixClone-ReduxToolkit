@@ -14,7 +14,11 @@ const MovieCard = ({item}) => {
       <Pressable
         onPress={() => navigation.navigate(MOVIEDETAIL, {movieId: item.id})}>
         <Image
-          source={{uri: `${IMG_URL}${item.poster_path}`}}
+          source={
+            item.poster_path
+              ? {uri: `${IMG_URL}${item.poster_path}`}
+              : require('../../assets/images/moviblack.jpg')
+          }
           style={styles.imgCard}
         />
         <Text numberOfLines={1} style={styles.titleText}>

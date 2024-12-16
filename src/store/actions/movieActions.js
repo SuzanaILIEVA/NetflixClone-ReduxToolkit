@@ -8,6 +8,7 @@ import {
   PERSON_DETAIL_URL,
   PERSON_MOVIE_CREDITS_URL,
   POPULAR_URL,
+  SEARCH_URL,
   SIMILAR_MOVIE_URL,
   TOP_RATED_URL,
   TRENDING_MOVIES_URL,
@@ -112,6 +113,16 @@ const getPersonMovies = createAsyncThunk(
     return response.data.cast;
   },
 );
+
+const getSearchMovies = createAsyncThunk(
+  'search/getSearchMovies',
+  async params => {
+    const response = await getRequest(SEARCH_URL, params);
+    // console.log('getSearchMovies==>', response.data.results);
+
+    return response.data.results;
+  },
+);
 export {
   getTopRatedMovies,
   getCategories,
@@ -124,4 +135,5 @@ export {
   getSimilarMovies,
   getPersonDetail,
   getPersonMovies,
+  getSearchMovies,
 };

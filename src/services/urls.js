@@ -13,6 +13,7 @@ export const SIMILAR_MOVIE_URL = id => `movie/${id}/similar`;
 
 export const PERSON_DETAIL_URL = id => `person/${id}`;
 export const PERSON_MOVIE_CREDITS_URL = id => `person/${id}/movie_credits`;
+export const SEARCH_URL = 'search/movie';
 
 //
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
