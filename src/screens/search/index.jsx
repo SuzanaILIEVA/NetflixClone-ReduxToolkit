@@ -13,8 +13,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {themeColors} from '../../themes/themeColors';
 import debounce from 'lodash/debounce';
 import {useDispatch, useSelector} from 'react-redux';
-import SeeAllMovieCard from '../../components/home/seeAllMovieCard';
 import {getSearchMovies} from '../../store/actions/movieActions';
+import SearchCard from '../../components/searchCard/searchCard';
 
 const SearchScreen = () => {
   const {searchResults, pending} = useSelector(state => state.searchStore);
@@ -23,14 +23,19 @@ const SearchScreen = () => {
 
   const [searchText, setSearchText] = useState('');
 
-  const handleSearch = value => {
-    // console.log('value:', value);
-    setSearchText(value); //
-    if (value.trim().length > 0) {
-      dispatch(getSearchMovies({query: value}));
-    }
+  const handleSearch = useCallback(
+    debounce(value => {
+      console.log('Searching for:', value);
+      if (value.trim().length > 0) {
+        dispatch(getSearchMovies({query: value}));
+      }
+    }, 400),
+    [],
+  );
+  const handleTextChange = value => {
+    setSearchText(value); // Arama metnini güncelle
+    handleSearch(value); // Debounced arama işlemini tetikle
   };
-  const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
 
   const clearInput = () => {
     setSearchText('');
@@ -40,7 +45,7 @@ const SearchScreen = () => {
       <View style={styles.inputContainer}>
         <InputComp
           placeholder={'Search Movie'}
-          onChangeText={handleTextDebounce}
+          onChangeText={handleTextChange}
           value={searchText}
         />
         <Pressable style={styles.icon} onPress={clearInput}>
@@ -56,10 +61,7 @@ const SearchScreen = () => {
       ) : searchResults.length > 0 ? (
         <FlatList
           data={searchResults}
-          numColumns={2}
-          renderItem={({item, index}) => (
-            <SeeAllMovieCard item={item} key={index} />
-          )}
+          renderItem={({item, index}) => <SearchCard key={index} item={item} />}
         />
       ) : (
         <Text style={{color: themeColors.WHITE, textAlign: 'center'}}>
