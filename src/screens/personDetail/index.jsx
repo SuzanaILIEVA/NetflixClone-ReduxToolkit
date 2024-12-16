@@ -29,7 +29,7 @@ const PersonDetailScreen = ({navigation, route}) => {
     state => state.personStore,
   );
 
-  const isPersonDetailPending = pending.personDetail;
+  const isPersonDetailPending = pending;
 
   useEffect(() => {
     dispatch(getPersonDetail({personId: personId}));

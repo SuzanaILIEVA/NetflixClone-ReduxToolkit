@@ -4,22 +4,13 @@ This is a Netflix Clone built using React Native with state management powered b
 
 ### Features
 
-User-Friendly UI: A visually appealing interface with responsive layouts.
-Movie Lists:
-Trending Movies
-Top-Rated Movies
-Popular Movies
-Now Playing
-Upcoming Movies
-
-### Search Functionality:
-
-Real-time search with debounce functionality.
-Clear search results with a single tap.
-Smooth Navigation: Powered by React Navigation with bottom tabs and stack navigation.
-API Integration:
-Integrated with The Movie Database (TMDB) API for fetching movies and their details.
-Global State Management: Used Redux Toolkit for seamless and scalable state management.
+- User-Friendly UI: A visually appealing interface with responsive layouts.
+- Real-time search with debounce functionality.
+- Clear search results with a single tap.
+- Smooth Navigation: Powered by React Navigation with bottom tabs and stack navigation.
+- API Integration:
+  Integrated with The Movie Database (TMDB) API for fetching movies and their details.
+- Global State Management: Used Redux Toolkit for seamless and scalable state management.
 
 ### Technologies & Libraries Used
 
@@ -55,3 +46,7 @@ Axios 1.7.9: For making HTTP requests to fetch data from the TMDB API.
 
 - Lodash 4.17.21: Utility functions for better data manipulation and performance optimization.
 - Debouncing: Used to optimize API calls during search.
+
+# Gif
+
+![](./src/assets/images/netflixCloneToolkit.gif)
