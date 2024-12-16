@@ -1,79 +1,57 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Netflix Clone
 
-# Getting Started
+This is a Netflix Clone built using React Native with state management powered by Redux Toolkit. The app implements key features such as movie search, trending lists, and navigation, showcasing modern React Native development best practices.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+### Features
 
-## Step 1: Start the Metro Server
+User-Friendly UI: A visually appealing interface with responsive layouts.
+Movie Lists:
+Trending Movies
+Top-Rated Movies
+Popular Movies
+Now Playing
+Upcoming Movies
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### Search Functionality:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Real-time search with debounce functionality.
+Clear search results with a single tap.
+Smooth Navigation: Powered by React Navigation with bottom tabs and stack navigation.
+API Integration:
+Integrated with The Movie Database (TMDB) API for fetching movies and their details.
+Global State Management: Used Redux Toolkit for seamless and scalable state management.
 
-```bash
-# using npm
-npm start
+### Technologies & Libraries Used
 
-# OR using Yarn
-yarn start
-```
+##### Core Frameworks & State Management
 
-## Step 2: Start your Application
+- React Native 18.3.1: Core framework for building the app.
+- Redux Toolkit 2.4.0: State management for handling movies, search results, and global app state.
+- React Redux 9.1.2: Integration of Redux with React components.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Navigation
 
-### For Android
+- @react-navigation/native 7.0.13: Core library for navigation.
+- @react-navigation/bottom-tabs 7.1.3: Bottom tab navigation for easy switching between screens.
+- @react-navigation/native-stack 7.1.14: Stack navigation for smooth screen transitions.
+- react-native-screens 4.3.0: Improves performance by optimizing screen transitions.
 
-```bash
-# using npm
-npm run android
+### UI & Styling
 
-# OR using Yarn
-yarn android
-```
+- react-native-linear-gradient 2.8.3: Adds gradient backgrounds for a modern and polished look.
+- react-native-vector-icons 10.2.0: Provides beautiful icons for UI elements like search and clear buttons.
+- react-native-safe-area-context 5.0.0: Ensures the app respects safe areas for a seamless user experience.
 
-### For iOS
+### Networking
 
-```bash
-# using npm
-npm run ios
+Axios 1.7.9: For making HTTP requests to fetch data from the TMDB API.
 
-# OR using Yarn
-yarn ios
-```
+### Form Handling & Validation
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+- Formik 2.4.6: Simplifies form handling for user inputs like movie search.
+- Yup 1.5.0: Schema validation for input validation (e.g., ensuring valid search terms).
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### Utility Libraries
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Lodash 4.17.21: Utility functions for better data manipulation and performance optimization.
+- Debouncing: Used to optimize API calls during search.
